@@ -1,18 +1,15 @@
 fn main() {
+    // obtener el nombre del usuario
     println!("Por favor introduce tu nombre: ");
-
     let mut nombre: String = String::new();
     std::io::stdin().read_line(&mut nombre).unwrap();
     nombre = nombre.trim().to_string();
 
-    // obtener la edad
-    println!("Por favor introduce tu edad: ");
-    let mut edad: String = String::new();
-    std::io::stdin().read_line(&mut edad).unwrap();
+    // obtener el país del usuario
+    println!("Por favor introduce tu país: ");
+    let mut pais: String = String::new();
+    std::io::stdin().read_line(&mut pais).unwrap();
+    nombre = nombre.trim().to_string();
 
-    // convertir la edad a numero
-    let edad_int: u8 = edad.trim().parse().unwrap();
-
-
-    println!("Hola, bienvenido/a {} de {} años", nombre, edad_int);
+    println!("Hola, bienvenido/a {} de {}", nombre, pais);
 }
