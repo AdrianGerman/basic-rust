@@ -15,21 +15,20 @@ struct DatoHistoria {
 }
 
 impl DatoHistoria {
-    fn new(row: StringRecord) -> DatoHistoria {
+    fn new(row: StringRecord) -> DatoHistoria{
         let vida = row.get(3).unwrap().trim();
         let vida : i32 = vida.parse().unwrap_or(0);
         return DatoHistoria {
-            tipo_dato: row.get(0).unwrap().trim().to_string(),
+            tipo_dato:row.get(0).unwrap().trim().to_string(),
             tag: row.get(1).unwrap().trim().to_string(),
             texto: row.get(2).unwrap().trim().to_string(),
-            vida: 0,
+            vida: vida,
         };
     }
 }
 
 fn main() {
     // calculator::run();
-
     let mut datos_historia: HashMap<String, DatoHistoria> = HashMap::new();
 
     let content = fs::read_to_string(FILENAME).unwrap();
@@ -41,6 +40,5 @@ fn main() {
         datos_historia.insert(dato.tag.clone(), dato);
     }
 
-    
-    println!("{:?}",datos_historia);
+    println!("{:?}",datos_historia["DERECHA"]);
 }
